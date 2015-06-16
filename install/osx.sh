@@ -20,10 +20,7 @@ brew tap caskroom/versions
 # Install Ruby gems (SASS, Compass)
 
 sudo gem install compass
-sudo gem install lunchy
-sudo gem install pygmentize
-sudo gem install sass
-sudo gem install sass-globbing
+sudo gem install sass-globbing # no need to update master.scss!
 
 # Globally install with npm
 
@@ -39,9 +36,3 @@ npm install -g vtop
 
 # http://www.sublimetext.com/docs/3/osx_command_line.html
 [ -f ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ] && ln -sfv ~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl "$DOTFILES_DIR/bin/subl"
-
-# Install extra stuff
-
-if [ -d "$EXTRA_DIR" -a -f "$EXTRA_DIR/install/osx.sh" ]; then
-    . "$EXTRA_DIR/install/osx.sh"
-fi

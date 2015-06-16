@@ -11,28 +11,34 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Blade"
-sudo scutil --set HostName "Blade"
-sudo scutil --set LocalHostName "Blade"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Blade"
+sudo scutil --set ComputerName "Leviathan"
+sudo scutil --set HostName "Leviathan"
+sudo scutil --set LocalHostName "Leviathan"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Leviathan"
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
 # Disable audio feedback when volume is changed
-write com.apple.sound.beep.feedback -bool false
+#write com.apple.sound.beep.feedback -bool false
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
+# Change Desktop background image
+python ../set-desktop/set_desktops.py --path ../set-desktop/desktop.jpg
+
 # Menu bar: disable transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+#defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # Menu bar: hide the useless Time Machine and Volume icons
 defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Menu bar: show battery percentage
 defaults write com.apple.menuextra.battery -bool true
+
+# Show full path filename in Finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 
 # Disable opening and closing window animations
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -145,14 +151,14 @@ defaults write -g com.apple.keyboard.fnState -bool true
 ###############################################################################
 
 # Require password 5 seconds after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 5
+#defaults write com.apple.screensaver askForPassword -int 1
+#defaults write com.apple.screensaver askForPasswordDelay -int 5
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
+#defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
@@ -211,10 +217,10 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+#defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Empty Trash securely by default
-defaults write com.apple.finder EmptyTrashSecurely -bool true
+#defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Enable the MacBook Air SuperDrive on any Mac
 sudo nvram boot-args="mbasd=1"
@@ -390,22 +396,22 @@ sudo mdutil -E / > /dev/null
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+#defaults write com.apple.terminal StringEncodings -array 4
 
 # Use "Pro" theme (black background color)
 defaults write com.apple.terminal "Default Window Settings" -string "Pro"
 defaults write com.apple.terminal "Startup Window Settings" -string "Pro"
 
 # Disable audible and visual bells
-defaults write com.apple.terminal "Bell" -bool false
-defaults write com.apple.terminal "VisualBell" -bool false
+#defaults write com.apple.terminal "Bell" -bool false
+#defaults write com.apple.terminal "VisualBell" -bool false
 
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+#hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Activity Monitor                                                            #
@@ -439,7 +445,7 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 ###############################################################################
 
 # Disable local Time Machine snapshots
-sudo tmutil disablelocal
+#sudo tmutil disablelocal
 
 ###############################################################################
 # Kill affected applications                                                  #
