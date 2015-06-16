@@ -6,7 +6,7 @@ It targets OS X systems, but since it has some defensive checks it should work o
 
 ## Install
 
-On a sparkling fresh installation of OS X:
+Run:
 
     sudo softwareupdate -i -a
     xcode-select --install
@@ -17,16 +17,6 @@ Install the dotfiles with either Git or curl:
 
     git clone https://github.com/webpro/dotfiles.git
     source dotfiles/install.sh
-
-### Remotely install using curl
-
-Alternatively, you can install this into `~/.dotfiles` remotely without Git using curl:
-
-    sh -c "`curl -fsSL https://raw.github.com/webpro/dotfiles/master/remote-install.sh`"
-
-Or, using wget:
-
-    sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/webpro/dotfiles/master/remote-install.sh`"
 
 ## The `dotfiles` command
 
@@ -75,12 +65,6 @@ You can put your custom settings, such as Git credentials in the `system/.custom
     * [Mjolnir](https://github.com/sdegutis/mjolnir)
     * [Mackup](https://github.com/lra/mackup)
     * [Quick Look plugins](https://github.com/sindresorhus/quick-look-plugins)
-
-## Not or barely installable from CLI
-
-* [Downloads for Apple Developers](https://developer.apple.com/downloads), including:
-    * Command Line Tools for XCode
-    * Hardware IO Tools for XCode (includes Network Link Conditioner)
 
 ## Additional resources
 
